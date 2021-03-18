@@ -20,6 +20,8 @@ function populateTotal() {
     return total + parseInt(t.value);
   }, 0);
 
+  // total = total.replace(new RegExp("^(\\d{" + (total.length%3? total.length%3:0) + "})(\\d{3})", "g"), "$1 $2").replace(/(\d{3})+?/gi, "$1 ").trim();
+  
   let totalEl = document.querySelector("#total");
   totalEl.textContent = total;
 }
@@ -151,3 +153,10 @@ document.querySelector("#add-btn").onclick = function() {
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
+
+// function numberFormat(_number) {
+//   _number = typeof _number != "undefined" && _number > 0 ? _number : "";
+//   _number = _number.replace(new RegExp("^(\\d{" + (_number.length%3? _number.length%3:0) + "})(\\d{3})", "g"), "$1 $2").replace(/(\d{3})+?/gi, "$1 ").trim();
+ 
+//   return _number;
+// }
