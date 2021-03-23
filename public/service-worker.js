@@ -11,7 +11,6 @@ const FILES_TO_CACHE = [
 const CACHE_NAME = "static-cache-v1.1"
 const DATA_CACHE_NAME = "data-cache-v1"
 
-// install
 self.addEventListener("install", function (evt) {
   evt.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -21,7 +20,7 @@ self.addEventListener("install", function (evt) {
   )
 
   self.skipWaiting()
-});
+})
 
 self.addEventListener("activate", function (evt) {
   evt.waitUntil(
@@ -36,11 +35,9 @@ self.addEventListener("activate", function (evt) {
       )
     })
   )
-
   self.clients.claim()
 })
 
-// fetch
 self.addEventListener("fetch", function (evt) {
   // cache successful requests to the API
   if (evt.request.url.includes("/api/")) {
